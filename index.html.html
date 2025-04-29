@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Transformers - Physics Project</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #e3f2fd;
+      color: #333;
+      display: flex;
+    }
+
+    .sidebar {
+      background-color: #2196f3;
+      color: white;
+      width: 220px;
+      padding: 30px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      position: fixed;
+      height: 100%;
+    }
+
+    .sidebar h2 {
+      font-size: 24px;
+    }
+
+    .sidebar ul {
+      list-style: none;
+    }
+
+    .sidebar ul li {
+      margin: 15px 0;
+    }
+
+    .sidebar ul li a {
+      color: white;
+      text-decoration: none;
+      font-size: 18px;
+      padding: 8px 12px;
+      border-radius: 6px;
+      display: block;
+      transition: background 0.3s;
+    }
+
+    .sidebar ul li a:hover {
+      background-color: #64b5f6;
+    }
+
+    .main-content {
+      margin-left: 240px;
+      padding: 40px;
+    }
+
+    .section {
+      scroll-margin-top: 80px;
+      margin-bottom: 60px;
+    }
+
+    .section h1 {
+      font-size: 36px;
+      color: #1565c0;
+      margin-bottom: 20px;
+    }
+
+    .section p {
+      font-size: 20px;
+      line-height: 1.6;
+      max-width: 800px;
+      margin-bottom: 20px;
+    }
+
+    #audioButton {
+      background-color: #42a5f5;
+      border: none;
+      color: white;
+      padding: 12px 24px;
+      font-size: 18px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s, transform 0.2s;
+    }
+
+    #audioButton:hover {
+      background-color: #1e88e5;
+      transform: scale(1.05);
+    }
+
+    .quiz-question {
+      margin-bottom: 20px;
+    }
+
+    .quiz-question h3 {
+      font-size: 22px;
+      margin-bottom: 10px;
+    }
+
+    .quiz-option {
+      margin-bottom: 5px;
+      font-size: 18px;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        flex-direction: column;
+      }
+
+      .sidebar {
+        width: 100%;
+        flex-direction: row;
+        overflow-x: auto;
+        height: auto;
+        position: static;
+      }
+
+      .main-content {
+        margin-left: 0;
+        padding: 20px;
+      }
+
+      .sidebar h2 {
+        display: none;
+      }
+
+      .sidebar ul {
+        display: flex;
+        gap: 15px;
+      }
+
+
+  </style>
+</head>
+<body>
+  <nav class="sidebar">
+    <h2>Sections</h2>
+    <ul>
+      <li><a href="#introduction">Introduction</a></li>
+      <li><a href="#detailed">Explanation</a></li>
+      <li><a href="#quiz">Quiz</a></li>
+      <li><a href="#transformer-3d-model">3D Model</a></li>
+      <li><a href="#Real">Real Life Examples</a></li>
+      <li><a href="#certificate">Certificate</a></li>
+      <li><a href="#Evaluation">Evaluation</a></li>
+      <li><a href="#Credit">Credit and Contact</a></li>
+
+
+    </ul>
+  </nav>
+
+  <main class="main-content">
+    <section id="introduction" class="section">
+      <h1>Welcome to Transformers!</h1>
+      <p>In this website, you will find an explanation of transformers using images, videos, and quizzes. At the end, you'll earn a certificate for mastering the topic!</p>
+      <p>A transformer is a device that transfers electric energy from one alternating-current circuit to another, either increasing or decreasing the voltage.</p>
+
+      <button id="audioButton" onclick="document.getElementById('introAudio').play()">🔊 Play Audio</button>
+      <audio id="introAudio">
+        <source src="audio/transformer-intro.mp3" type="audio/mpeg" />
+        Your browser does not support the audio element.
+      </audio>
+
+      <div style="text-align: center; margin-top: 30px;">
+        <img src="http://hyperphysics.phy-astr.gsu.edu/hbase/magnetic/imgmag/transf.png" alt="Transformer Diagram" width="500" />
+      </div>
+    </section>
+
+    <section id="detailed" class="section">
+      <h1>Explanation</h1>
+      <p>Transformers work on the principle of <strong>electromagnetic induction</strong>. When AC passes through the primary coil, it generates a changing magnetic field that induces voltage in the secondary coil.</p>
+      <div style="text-align: center; margin: 30px 0;">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/7RtBUEZbKmI" title="How Transformers Work" frameborder="0" allowfullscreen></iframe>
+      </div>
+      <p>Transformers are essential in our daily lives, from phone chargers to power stations. They help make electricity safe and efficient to use over long distances.</p>
+    </section>
+
+<section id="quiz" class="section">
+  <h1>Quiz Time! 🚀</h1>
+  <p style="font-size: 18px;">Test your knowledge about transformers below!</p>
+
+  <form id="quizForm" onsubmit="return false;" style="background-color: #bbdefb; padding: 25px; border-radius: 12px; max-width: 800px; margin: 0 auto;">
+    <div class="quiz-question">
+      <h3>🔌 1. What does a transformer do?</h3>
+      <label class="quiz-option"><input type="radio" name="q1" value="a" /> Generates electricity</label><br />
+      <label class="quiz-option"><input type="radio" name="q1" value="b" /> Changes voltage levels</label><br />
+      <label class="quiz-option"><input type="radio" name="q1" value="c" /> Stores electric charge</label>
+    </div>
+
+    <div class="quiz-question">
+      <h3>🔁 2. What principle do transformers work on?</h3>
+      <label class="quiz-option"><input type="radio" name="q2" value="a" /> Static electricity</label><br />
+      <label class="quiz-option"><input type="radio" name="q2" value="b" /> Electromagnetic induction</label><br />
+      <label class="quiz-option"><input type="radio" name="q2" value="c" /> Chemical reaction</label>
+    </div>
+
+    <div class="quiz-question">
+      <h3>⚡ 3. What type of current do transformers use?</h3>
+      <label class="quiz-option"><input type="radio" name="q3" value="a" /> Direct current (DC)</label><br />
+      <label class="quiz-option"><input type="radio" name="q3" value="b" /> Alternating current (AC)</label><br />
+      <label class="quiz-option"><input type="radio" name="q3" value="c" /> Both</label>
+    </div>
+
+    <div class="quiz-question">
+      <h3>🌀 4. What is the main component that links primary and secondary coils?</h3>
+      <label class="quiz-option"><input type="radio" name="q4" value="a" /> Plastic tube</label><br />
+      <label class="quiz-option"><input type="radio" name="q4" value="b" /> Magnetic core</label><br />
+      <label class="quiz-option"><input type="radio" name="q4" value="c" /> Battery</label>
+    </div>
+
+    <div class="quiz-question">
+      <h3>🔋 5. Which type of transformer increases voltage?</h3>
+      <label class="quiz-option"><input type="radio" name="q5" value="a" /> Step-down transformer</label><br />
+      <label class="quiz-option"><input type="radio" name="q5" value="b" /> Step-up transformer</label><br />
+      <label class="quiz-option"><input type="radio" name="q5" value="c" /> Equalizer</label>
+    </div>
+
+    <div style="text-align: center; margin-top: 20px;">
+      <button type="submit" onclick="gradeQuiz()" style="padding: 12px 25px; background-color: #0d47a1; color: white; font-size: 18px; border: none; border-radius: 8px; cursor: pointer;">🎯 Submit Quiz</button>
+    </div>
+  </form>
+
+  <div id="quizResult"></div>
+</section>
+
+<script>
+  function gradeQuiz() {
+    const correctAnswers = {
+      q1: "b",
+      q2: "b",
+      q3: "b",
+      q4: "b",
+      q5: "b"
+    };
+
+    let score = 0;
+    let total = Object.keys(correctAnswers).length;
+
+    for (let key in correctAnswers) {
+      const selected = document.querySelector(`input[name="${key}"]:checked`);
+      if (selected && selected.value === correctAnswers[key]) {
+        score++;
+      }
+    }
+
+    let expression = "";
+    if (score === 5) {
+      expression = "🌟 Excellent! You're a transformer genius!";
+    } else if (score >= 3) {
+      expression = "🎉 Great job! You're getting the hang of it!";
+    } else if (score >= 1) {
+      expression = "✨ Keep learning! You're on your way!";
+    } else {
+      expression = "🧐 Try again — transformers can be tricky!";
+    }
+
+    document.getElementById("quizResult").innerHTML = `
+      <div style="background:#e3f2fd;padding:20px;border-radius:10px;margin-top:20px;text-align:center;">
+        <h2>Your Score: ${score}/${total}</h2>
+        <p style="font-size:20px;">${expression}</p>
+      </div>`;
+  }
+</script>
+
+        <div style="text-align: center; margin-top: 20px;">
+        </div>
+      </form>
+
+      <div id="quizResult" style="margin-top: 20px; font-size: 22px; font-weight: bold; color: #1565c0; text-align: center;"></div>
+    </section>
+
+    <section id="transformer-3d-model" class="section">
+      <h1>Explore the Transformer in 3D 🔍</h1>
+      <p style="font-size: 18px;">Take a closer look at a 3D model of a transformer and see how it works in action!</p>
+
+      <div style="text-align: center;">
+        <iframe width="800" height="600" src="https://sketchfab.com/models/9e7076096b0346dfbbc729f75f1b41be/embed" frameborder="0" allowfullscreen></iframe>
+      </div>
+
+      <p style="font-size: 18px; margin-top: 20px;">You can interact with the model, rotate it, and zoom in to explore its components. This will give you a better understanding of how transformers work in real life!</p>
+
+    </section>
+          <section id="Real" class="section">
+<section id="real-life-examples" class="section" style="padding: 60px 20px; background: linear-gradient(to right, #fce4ec, #e1f5fe); font-family: 'Poppins', sans-serif;">
+  <h2 style="text-align: center; font-size: 40px; color: #1e88e5; margin-bottom: 15px;">✨ Real-Life Superpowers of Transformers</h2>
+  <p style="text-align: center; font-size: 20px; color: #37474f; margin-bottom: 40px;">
+    Transformers aren’t just classroom topics — they’re powering the world around you every day! 🚀 Let’s explore their magical work:
+  </p>
+
+  <div style="position: relative; max-width: 900px; margin: 0 auto;">
+    <!-- Timeline line -->
+    <div style="position: absolute; left: 50%; width: 4px; height: 100%; background-color: #90caf9; transform: translateX(-50%);"></div>
+
+    <!-- Card 1 -->
+    <div style="position: relative; margin-bottom: 60px;">
+      <div style="position: relative; left: 0; width: 45%; background: #e3f2fd; padding: 20px; border-radius: 12px; box-shadow: 0 6px 20px rgba(0,0,0,0.1);">
+        <h3 style="color: #1565c0;">🌆 City Transformers</h3>
+        <p style="color: #455a64;">They step up voltage for long-distance travel and step it down again before it reaches your home — like electricity superheroes!</p>
+      </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div style="position: relative; margin-bottom: 60px;">
+      <div style="position: relative; left: 55%; width: 45%; background: #fff3e0; padding: 20px; border-radius: 12px; box-shadow: 0 6px 20px rgba(0,0,0,0.1);">
+        <h3 style="color: #ef6c00;">📱 Mini Transformers in Chargers</h3>
+        <p style="color: #455a64;">Inside your phone charger, a tiny transformer makes sure your device gets just the right power — no more, no less!</p>
+      </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div style="position: relative; margin-bottom: 60px;">
+      <div style="position: relative; left: 0; width: 45%; background: #ede7f6; padding: 20px; border-radius: 12px; box-shadow: 0 6px 20px rgba(0,0,0,0.1);">
+        <h3 style="color: #6a1b9a;">🏥 Hospitals & MRI Machines</h3>
+        <p style="color: #455a64;">Transformers help power sensitive machines like MRIs with stable voltage, making sure doctors get clear images to save lives.</p>
+      </div>
+    </div>
+
+    <!-- Card 4 -->
+    <div style="position: relative;">
+      <div style="position: relative; left: 55%; width: 45%; background: #f1f8e9; padding: 20px; border-radius: 12px; box-shadow: 0 6px 20px rgba(0,0,0,0.1);">
+        <h3 style="color: #2e7d32;">🏭 Factory Transformers</h3>
+        <p style="color: #455a64;">In factories, powerful transformers energize huge machines to keep production going strong — they’re industrial heroes!</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Certificate Generator</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
+  <style>
+    body {
+      font-family: 'Roboto Slab', serif;
+      background-color: #f4f6f7;
+    }
+    #certificate {
+      padding: 50px;
+      text-align: center;
+      background-color: #ffffff;
+      box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.1);
+      border-radius: 12px;
+      width: 80%;
+      max-width: 800px;
+      margin: 30px auto;
+    }
+
+    .certificatePreview {
+      background-color: #f9fbe7;
+      border: 2px solid #1e88e5;
+      border-radius: 15px;
+      padding: 30px;
+      margin-top: 30px;
+    }
+
+    input {
+      font-family: 'Georgia', serif;
+      padding: 10px 15px;
+      width: 70%;
+      max-width: 500px;
+      font-size: 20px;
+      text-align: center;
+      border: 2px solid #1e88e5;
+      border-radius: 10px;
+      background-color: #f4f6f7;
+      margin-top: 15px;
+    }
+
+    button:hover {
+      background-color: #1e88e5;
+      transform: scale(1.05);
+    }
+
+    button {
+      font-size: 18px;
+      padding: 12px 24px;
+      background-color: #42a5f5;
+      border: none;
+      color: white;
+      font-family: 'Georgia', serif;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+  </style>
+</head>
+<body>
+
+<section id="certificate" class="section" style="text-align: center;">
+  <h1 style="font-family: 'Roboto Slab', serif; font-size: 36px; color: #1e88e5;">🎓 Congratulations, Master of Transformers! 🎓</h1>
+  <p style="font-size: 20px; font-family: 'Georgia', serif; color: #2c3e50;">You’ve successfully completed the Transformers Physics lesson. Now get your certificate!</p>
+
+  <input id="nameInput" type="text" placeholder="Your Name" style="font-size: 20px; padding: 10px; border: 2px solid #1e88e5; border-radius: 8px; margin: 20px auto; width: 60%; max-width: 400px; text-align: center;" />
+
+  <div id="certificatePreview" style="border: 4px double #1e88e5; padding: 30px; margin: 20px auto; width: 90%; max-width: 700px; background-color: #e3f2fd; font-family: 'Georgia', serif; border-radius: 15px;">
+    <h2 style="color: #1e88e5;">Certificate of Achievement</h2>
+    <p style="font-size: 22px; color: #2c3e50;">This certifies that</p>
+    <p id="studentName" style="font-size: 28px; color: #e74c3c; font-weight: bold;">[Your Name]</p>
+    <p style="font-size: 20px; color: #2c3e50;">has successfully completed the</p>
+    <p style="font-size: 22px; color: #1e88e5;"><strong>Transformers Physics</strong> course</p>
+    <p style="font-size: 20px; color: #2c3e50;">Date: <span id="certificateDate">[Date]</span></p>
+  </div>
+
+  <button onclick="generateCertificate()" style="padding: 12px 25px; background-color: #1e88e5; color: white; font-size: 18px; border: none; border-radius: 8px; cursor: pointer;">📥 Download Certificate</button>
+</section>
+
+<!-- Include html2canvas from CDN -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+<script>
+  // Set date and name dynamically
+  function updateCertificatePreview() {
+    const name = document.getElementById("nameInput").value || "[Your Name]";
+    const date = new Date().toLocaleDateString();
+    document.getElementById("studentName").innerText = name;
+    document.getElementById("certificateDate").innerText = date;
+  }
+
+  document.getElementById("nameInput").addEventListener("input", updateCertificatePreview);
+  window.onload = updateCertificatePreview;
+
+  // Download as image
+  function generateCertificate() {
+    updateCertificatePreview();
+    html2canvas(document.getElementById("certificatePreview")).then(canvas => {
+      const link = document.createElement("a");
+      link.download = "transformers-certificate.png";
+      link.href = canvas.toDataURL();
+      link.click();
+    });
+  }
+</script>
+
+<script>
+  // Function to display the current date
+  const currentDate = new Date().toLocaleDateString();
+  document.getElementById('currentDate').textContent = currentDate;
+  document.getElementById('certificateDate').textContent = currentDate;
+
+  // Function to update the certificate preview with the entered name
+  function updateCertificatePreview() {
+    const name = document.getElementById('nameInput').value;
+    document.getElementById('studentName').textContent = name || "[Student Name]";
+  }
+
+  // Event listener for name input to update preview
+  document.getElementById('nameInput').addEventListener('input', updateCertificatePreview);
+
+  // Function to generate and download the certificate
+  function generateCertificate() {
+    html2canvas(document.getElementById('certificatePreview')).then(function(canvas) {
+      // Convert canvas to data URL
+      const dataURL = canvas.toDataURL('image/png');
+
+      // Create a temporary link element to trigger the download
+      const link = document.createElement('a');
+      link.href = dataURL;
+      link.download = 'certificate_of_achievement.png';
+      link.click();
+    });
+
+
+</script>
+    <section id="Evaluation" class="section">
+
+<section id="evaluation" class="section" style="background-color: #f3f4f6; padding: 40px; border-top: 3px solid #1e88e5; font-family: 'Georgia', serif;">
+  <h2 style="text-align: center; color: #1e88e5; font-size: 32px;">🌟 We'd Love Your Feedback!</h2>
+  <form action="mailto:stuf691907@ese.gov.ae" method="POST" enctype="text/plain" style="max-width: 650px; margin: 30px auto; background-color: #ffffff; padding: 25px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);">
+
+    <label for="name" style="font-size: 18px; color: #2c3e50;">Your Name</label><br />
+    <input type="text" id="name" name="Name" required placeholder="Enter your name" style="width: 100%; padding: 12px; font-size: 16px; margin-top: 8px; border: 1px solid #ccc; border-radius: 8px;"><br /><br />
+
+    <label for="email" style="font-size: 18px; color: #2c3e50;">Your Email</label><br />
+    <input type="email" id="email" name="Email" required placeholder="Enter your email" style="width: 100%; padding: 12px; font-size: 16px; margin-top: 8px; border: 1px solid #ccc; border-radius: 8px;"><br /><br />
+
+    <label for="rating" style="font-size: 18px; color: #2c3e50;">How would you rate this lesson?</label><br />
+    <select id="rating" name="Rating" required style="width: 100%; padding: 12px; font-size: 16px; margin-top: 8px; border: 1px solid #ccc; border-radius: 8px;">
+      <option value="" disabled selected>Choose an option</option>
+      <option value="Amazing">🌟 Amazing</option>
+      <option value="Good">👍 Good</option>
+      <option value="Okay">🙂 Okay</option>
+    </select><br /><br />
+
+    <label for="feedback" style="font-size: 18px; color: #2c3e50;">Your Feedback</label><br />
+    <textarea id="feedback" name="Feedback" rows="5" placeholder="Share your thoughts here..." style="width: 100%; padding: 12px; font-size: 16px; border: 1px solid #ccc; border-radius: 8px; resize: vertical;"></textarea><br /><br />
+
+    <button type="submit" style="background-color: #1e88e5; color: white; padding: 12px 24px; font-size: 18px; border: none; border-radius: 8px; cursor: pointer;">📩 Send Feedback</button>
+  </form>
+      <section id="Credit" class="section">
+
+</section
+
+<footer style="text-align: center; margin-top: 50px; padding: 20px; font-family: 'Georgia', serif; background-color: #c8e6c9; color: #2e7d32;">
+  <p>Website created by Sara Mhisen 📚 | <a href="mailto:stuf691907@ese.gov.ae?subject=Transformers%20Website%20Feedback" style="color: #2e7d32; font-weight: bold;">stuf691907@ese.gov.ae</a></p>
+</footer>
+
+</body>
+</html>
+
+
+
+
+
+  <script>
+
+  </script>
+</body>
+</html>
